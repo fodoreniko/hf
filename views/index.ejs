@@ -1,0 +1,51 @@
+<%- include('header') -%>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col"><h1>Polcok</h1></div>
+    </div>
+    <div class="row">
+
+        <div class="col">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Név</th>
+                    <th scope="col">Használó</th>
+                    <th scope="col"></th>
+
+                </tr>
+                </thead>
+
+                <% shelflist.forEach(function(shelf){ %>
+                <tr>
+                    <td>
+                        <div class="btn-group btn-group-sm">
+                            <a href="/shelf/del/<%= shelf._id %>" class="btn btn-sm btn-outline-secondary"><i class="fa-solid fa-trash"></i></a>
+                            <a href="/shelf/edit/<%= shelf._id %>" class="btn btn-sm btn-outline-secondary"><i class="fa-regular fa-pen-to-square"></i></a>
+                        </div>
+                    </td>
+                    <td><%= shelf.nev%></td>
+                    <td><%= shelf.hasznalo%></td>
+                    <td><a href="/food/<%= shelf._id %>" class="btn btn-sm btn-secondary">Ételek</a></td>
+                </tr>
+                <% }); %>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-6"></div>
+        <div class="col-6">
+            <a href="/shelf/new" class="btn btn-secondary">Polc hozzáadása</a>
+        </div>
+    </div>
+
+</div>
+
+<%- include('footer')%>
+
+

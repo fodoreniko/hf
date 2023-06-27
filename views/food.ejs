@@ -1,0 +1,53 @@
+<%- include('header') -%>
+
+<div class="container">
+    <div class="row">
+        <div class="col"><h1>Ételek</h1></div>
+    </div>
+    <div class="row">
+
+        <div class="col">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Név</th>
+                    <th scope="col">Berakás időpontja</th>
+                    <th scope="col">Mennyiség</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <% foodlist.forEach(function(food){ %>
+                <tr>
+                    <td>
+                    <div class="btn-group btn-group-sm">
+                        <a href="/food/<%= shelf._id %>/<%= food._id %>/del" class="btn btn-sm btn-outline-secondary"><i class="fa-solid fa-trash"></i></a>
+                        <a href="/food/<%= shelf._id %>/<%= food._id %>" class="btn btn-sm btn-outline-secondary"><i class="fa-regular fa-pen-to-square"></i></a>
+                    </div>
+                    </td>
+                    <td><%= food.nev%></td>
+                    <td><%= food.idopont.toLocaleDateString()%></td>
+                    <td><%= food.mennyiseg%> <%= food.mertekegyseg%></td>
+                </tr>
+                <% }); %>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group me-2" role="group" aria-label="First group">
+            <a href="/" class="btn btn-secondary">Vissza a polcokhoz</a>
+        </div>
+        <div class="btn-group me-2" role="group" aria-label="Second group">
+            <a href="/food/<%= shelf._id %>/new" class="btn btn-secondary">Új étel hozzáadása</a>
+        </div>
+    </div>
+
+</div>
+
+
+<%- include('footer')%>

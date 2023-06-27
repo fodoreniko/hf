@@ -1,0 +1,58 @@
+<%- include('header') -%>
+
+<div class="container">
+  <div class="row">
+    <div class="col"><h1>Étel <% if (typeof food === 'undefined') { %>
+          hozzáadása
+        <% }else{ %>
+          módosítása
+        <% } %></h1></div>
+  </div>
+  <form method="POST">
+    <div class="row">
+        <div class = "col-6">
+          <div class="input-group mb-3">
+            <span class="input-group-text">Név</span>
+            <input type="text" class="form-control" id = "nev" name="nev" value="<%= (typeof food === 'undefined') ? '' : food.nev %>" required>
+          </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class = "col-6">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Berakás időpontja</span>
+          <input type="date" class="form-control " id = "idopont" name="idopont" value="<%= (typeof food === 'undefined') ? '' : food.idopont.toISOString().split('T')[0] %>" required>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class = "col-6">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Mennyiség</span>
+          <input type="text" class="form-control" id = "mennyiseg" name="mennyiseg" value="<%= (typeof food === 'undefined') ? '' : food.mennyiseg %>" required>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class = "col-6">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Mértékegység</span>
+          <input type="text" class="form-control" id = "mertekegyseg" name="mertekegyseg" value="<%= (typeof food === 'undefined') ? '' : food.mertekegyseg %>">
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+      <div class="btn-group me-2" role="group" aria-label="First group">
+        <a href="/food/<%= shelf._id %>" class="btn btn-secondary">Mégsem</a>
+      </div>
+      <div class="btn-group me-2" role="group" aria-label="Second group">
+        <input type="submit" class="btn btn-secondary" value = "Mentés"/>
+      </div>
+    </div>
+  </form>
+
+
+</div>
+
+<%- include('footer')%>

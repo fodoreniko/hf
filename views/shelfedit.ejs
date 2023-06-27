@@ -1,0 +1,43 @@
+<%- include('header') -%>
+
+<div class="container">
+  <div class="row">
+    <div class="col"><h1>Polc <% if (typeof shelf === 'undefined') { %>
+          hozzáadása
+        <% }else{ %>
+          módosítása
+        <% } %></h1></div>
+  </div>
+  <form method="POST">
+    <div class="row">
+      <div class = "col-6">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Név</span>
+          <input type="text" class="form-control" id = "nev" name="nev" value="<%= (typeof shelf === 'undefined') ? '' : shelf.nev %>">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class = "col-6">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Használó</span>
+          <input type="text" class="form-control" id = "hasznalo" name="hasznalo" value="<%= (typeof shelf === 'undefined') ? '' : shelf.hasznalo %>">
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+      <div class="btn-group me-2" role="group" aria-label="First group">
+        <a href="/" class="btn btn-secondary">Mégsem</a>
+      </div>
+      <div class="btn-group me-2" role="group" aria-label="Second group">
+        <input type="submit" class="btn btn-secondary" value = "Mentés"/>
+
+      </div>
+    </div>
+  </form>
+
+</div>
+
+
+<%- include('footer')%>
