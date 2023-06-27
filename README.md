@@ -1,4 +1,3 @@
-# hf
+# Mélyhűtő rendszerező
 
-
-[spec.docx](https://github.com/fodoreniko/hf/files/11885494/spec.docx)
+[spec.pdf](https://github.com/fodoreniko/hf/files/11885504/spec.pdf)
